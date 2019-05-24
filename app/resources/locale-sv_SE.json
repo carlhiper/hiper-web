@@ -1,0 +1,151 @@
+Menu
+English Swedish where/when
+FEED FLÖDE
+app main menu
+SCOREBOARD MÅLTAVLA
+TEAM TEAM
+Create profile
+English Swedish where/when
+FIRST NAME FÖRNAMN
+create profile page
+LAST NAME EFTERNAMN
+TITLE TITEL
+COMPANY FÖRETAG
+NICKNAME SMEKNAMN
+EMAIL EMAIL
+PASSWORD LÖSENORD
+ADD PICTURE LÄGG TILL BILD
+Create team
+English Swedish where/when
+TEAM NAME TEAM NAMN
+create team page
+PASSWORD LÖSENORD
+COMPANY FÖRETAG
+ORG. NUMBER ORG. NUMMER
+BILLING ADDRESS FAKTURA ADRESS
+EMAIL EMAIL
+Create team/Join team
+English Swedish where/when
+CREATE TEAM SKAPA TEAM
+create/join team page
+JOIN TEAM ANSLUT TILL TEAM
+JOIN LATER ANSLUT EJ
+Create team
+English Swedish where/when
+TEAM NAME TEAM NAMN
+Create team page
+PASSWORD LÖSENORD
+COMPANY NAME FÖRETAGSNAMN
+ORG.NUMBER ORG. NUMMER
+BILLING ADDRESS FAKTURA ADDRESS
+TEAM MEMBERS TEAM MEDLEMMAR
+EMAIL EMAIL
+DONE KLAR
+Join team
+English Swedish where/when
+TEAM NAME TEAM NAMN
+join team page
+PASSWORD LÖSENORD
+WRONG NAME OR PW FEL NAMN ELLER LÖSENORD
+User profile
+English Swedish where/when
+GOALS MÅL
+LEAVE LÄMNA user profile page
+Team
+English Swedish where/when
+add goal sätt mål
+team page
+add member lägg till medlem
+delete member ta bort medlem
+Status of goal
+English Swedish where/when
+active aktiv
+set in create goal page
+cancel avbryt
+achieved uppnådde
+didn't achieve uppnådde ej
+Type of update
+English Swedish where/when
+added a goal! lade till ett mål! a team member adds a goal
+achieved a goal! nådde sitt mål!
+when goal status is changed to
+"achieved..."
+didn't achieve the goal nådde inte sitt mål
+when goal status is changed to "didn't
+achieve..."
+cancelled a goal tog bort ett mål
+when goal status is changed to
+"cancelled..."
+is a new team member! är en ny team medlem! an applicant becomes a member
+left the team lämnade teamet a member is removed
+received new goal! nytt team mål!
+administrator creates a goal for a
+member or a team
+missed a deadline! missade en milstolpe! deadline passed without achievement
+has one week left har en vecka kvar one week left to deadline
+has three days left har tre dagar kvar three days left to deadline
+has one day left har en dag kvar one day left to deadline
+achieved 25% of goal har klarat 25% av målet! reached amount / goal amount > 25%
+achieved 50% of goal har klarat 50% av målet! reached amount / goal amount > 50%
+achieved 75% of goal har klarat 75% av målet! reached amount / goal amount > 75%
+Type of goal
+English Swedish where/when
+all alla
+goal page
+yes/no ja/nej
+number nummer
+Filter
+English Swedish where/when
+goal created mål skapat
+feed view
+deadline milstolpe
+filter filter
+team member teammedlem
+update uppdatering
+type of goal typ av mål
+time span tidsperiod
+all alla
+Messages
+English Swedish where/when
+WRONG NAME OR PASSWORD FEL NAMN ELLER LÖSENORD when joining a team
+INVALID INPUT FELAKTIG INMATNING
+when entering a text that doesn't suit
+the field
+ARE YOU SURE? ÄR DU SÄKER?
+when leaving the team or cancelling a
+goal
+Repeats
+English Swedish where/when
+1 day 1 dag
+1 week 1 vecka goal page
+1 month 1 månad
+no repeat ej återkommande
+Place holders
+English Swedish where/when
+title titel
+Goal page
+description of goal beskrivning av mål
+reached amount nådd summa
+target amount mål summa
+deadline deadline
+first name förnamn
+Create profile / create team
+last name efternamn
+nickname smeknamn
+company företag
+email email
+password lösenord
+add picture lägg till bild
+organisation number organisationsnummer
+billing address faktura adress
+emails of team members email till team medlemmar
+Survey
+English Swedish where/when
+I had enough time Jag hade tillräckligt med tid
+Goals page, when closing a goal
+I had the right skills Jag hade rätt kompetens
+I had enough support Jag fick tillräckligt med stöd
+I had enough resources Jag hade rätt material och verktyg
+Additional
+English Swedish where/when
+empty tom

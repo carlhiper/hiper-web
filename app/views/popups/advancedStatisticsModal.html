@@ -1,0 +1,93 @@
+﻿<div class="popUpExtended">
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-xs-4 col-xs-offset-4" >
+                <select name="selectUser" class="form-control customInput customInput_sidebar" id="selectUser"
+                        ng-options="option.name for option in advansedStatUsers.options track by option.id"
+                        ng-model="advansedStatUsers.selected"></select>
+            </div>
+        </div>
+        <br>
+
+        <p class="text-center">
+            <button ng-click="loadGraphData('1m')" ng-class="{btn_white_active: graphCounter === '1m'}" class="btn btn-xs">1m</button>
+            <button ng-click="loadGraphData('3m')" ng-class="{btn_white_active: graphCounter === '3m'}" class="btn btn-xs">3m</button>
+            <button ng-click="loadGraphData('6m')" ng-class="{btn_white_active: graphCounter === '6m'}" class="btn btn-xs">6m</button>
+            <button ng-click="loadGraphData('1y')" ng-class="{btn_white_active: graphCounter === '1y'}" class="btn btn-xs">1y</button>
+            <button ng-click="loadGraphData('3y')" ng-class="{btn_white_active: graphCounter === '3y'}" class="btn btn-xs">3y</button>
+            <button ng-click="loadGraphData('10y')" ng-class="{btn_white_active: graphCounter === '10y'}" class="btn btn-xs">10y</button>
+        </p>
+
+        <div class="chart chart_modal"></div>  
+        <c3chart bindto-id="chart1" class="curve"  chart-data="chartPoints" chart-columns="chartColumns"  chart-x="datax" callback-function="handleCallback">
+            <chart-points point-radius="5"
+                          show-point="galse"
+                          point-expand-enabled="true"
+                          point-expand-radius="10">
+         </chart-points>
+            <chart-axis>
+                <chart-axis-x axis-id="x" axis-type="timeseries">
+                    <chart-axis-x-tick tick-rotate="50" tick-count="30"
+                                       tick-culling="4"
+                                       tick-fit="true" tick-format-function="time_format" />
+                </chart-axis-x>
+                <chart-axis-y axis-id="y"
+                              padding-top="100"
+                              padding-bottom="0"
+                              range-min="0">
+                    <chart-axis-y-tick tick-rotate="50" tick-format-function="percent_format"/>
+                </chart-axis-y>
+
+            </chart-axis>
+            <chart-group group-values="'achieved goals /all goals:', 'missed deadlines/all goals:', 'cancelled goals/all goals:',
+            'I had enought time/all goals:', 'I had the right skills/all goals:', 'I had enought support/all goals:', 'I had enought resource/all goals:'" />
+        </c3chart>
+
+        
+
+        <div class="chartTable">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th class="text-center">
+                            <button ng-click="showPercentOrAbs(true)" ng-class="{btn_white_active: showPercent}" class="btn btn-sm btn-white">%</button>
+                            <button ng-click="showPercentOrAbs(false)" ng-class="{btn_white_active: !showPercent}"  class="btn btn-sm btn-white">|A|</button>
+                        </th>    
+                        <th ng-repeat="date in datesRow" compile="timeFormatTable(date)"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="row in advancedRows track by $index ">
+                        <td ng-repeat="col in row track by $index">
+
+                            <span compile="advancedRows[$parent.$index][$index]"></span>
+
+                            <span ng-if="!$first"><span ng-if="showPercent">%</span></span>
+                            <span ng-if="$first"><span ng-if="showPercent">/all goals</span></span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <p class="chartTable__time">
+            <span class="chartTable__sort">time options</span>
+            <button ng-click="getTableData('1m')" ng-class="{btn_white_active: tableCounter === '1m'}" class="btn btn-xs">1m</button>
+            <button ng-click="getTableData('1q')" ng-class="{btn_white_active: tableCounter === '1q'}" class="btn btn-xs">1q</button>
+            <button ng-click="getTableData('1y')" ng-class="{btn_white_active: tableCounter === '1y'}" class="btn btn-xs">1y</button>
+            <button ng-click="getTableData('1m/1y')" ng-class="{btn_white_active: tableCounter === '1m/1y'}" class="btn btn-xs">1m/1y</button>
+            <button ng-click="getTableData('1q/1y')" ng-class="{btn_white_active: tableCounter === '1q/1y'}" class="btn btn-xs">1q/1y</button>
+        </p>
+
+        <div class="modal-footer">
+         
+            <button class="btn btn-white popUp__button"
+                    data-ng-click="modalOptions.ok();">
+                {{modalOptions.actionButtonText}}
+            </button>
+        </div>
+
+    </div>
+
+    
+</div>

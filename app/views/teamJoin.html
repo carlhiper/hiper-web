@@ -1,0 +1,16 @@
+﻿
+<form class="mainForm_joinTeam mainForm" role="form" ng-submit="joinTeam()">
+    <h2 class="form-login-heading">JOIN TEAM</h2>
+    <div class="mainForm__inner">
+
+        <input type="text" class="form-control" placeholder='{{"JoinTeam.TEAMNAME" | translate}}' data-ng-model="join.teamName" required autofocus>
+        <input type="password" class="form-control" placeholder='{{"JoinTeam.PASSWORD" | translate}}' data-ng-model="join.password" required>
+        <input type="email" class="form-control" placeholder='{{"ADMIN EMAIL..." | translate}}' data-ng-model="join.adminEmail" required>
+
+
+        <button class="btn btn-md btn-info btn-block btn-white form-control mainForm__button" type="submit">{{'JoinTeam.JOINTEAM' | translate}}</button>
+        <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+            {{message}}
+        </div>
+    </div>
+</form>

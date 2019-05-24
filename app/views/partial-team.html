@@ -1,0 +1,30 @@
+﻿<ul class="teams ">
+    <li  class="teams__item teams__item_img" ng-repeat="user in currentTeam.userList track by $index">
+        <span ng-click="openScoreboard(user.userName)" class="teams__avatar">
+            <img src="{{currentTeam.userList[$index].picture}}"></img>
+        </span>
+       
+        <div class="teams__text teams__text_right teams__text_wide"
+             ng-class="{ teams__text_borderGray: currentTeam.userList[$index].isApplicant === true }">
+            <span class="teams__check" ng-show="isAdmin()">
+                <input value="{{user.userName}}" ng-checked="selectedTeams.indexOf(user.userName) > -1" ng-click="toggleSelection(user.userName)" type="checkbox" class="customCheckBox customCheckBox_teams customCheckBox_orange" name="{{user.userName}}" id="{{user.userName}}" />
+                <label for="{{user.userName}}"></label>
+            </span>
+
+            <h4 ng-click="openScoreboard(user.userName)" class="teams__name">
+                <span>{{currentTeam.userList[$index].firstName}}</span>
+                <span>{{currentTeam.userList[$index].lastName}}</span>
+                <span ng-if="currentTeam.userList[$index].isAdmin === true">
+                    (adm)
+                </span>
+            </h4>
+            <span ng-if="currentTeam.userList[$index].isApplicant === true">
+APPLICANT
+</span>
+                <h5 class="teams__nickName">{{currentTeam.userList[$index].nickName}}</h5>
+                <p class="teams__title">{{currentTeam.userList[$index].title}}</p>
+                <p class="teams__title">{{currentTeam.userList[$index].company}}</p>
+</div>
+        
+    </li>
+</ul>

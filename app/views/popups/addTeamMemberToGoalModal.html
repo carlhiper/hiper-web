@@ -1,0 +1,19 @@
+﻿<div class="popUp">
+    <div class="modal-body">
+        <h2>{{modalOptions.headerText}}</h2>
+
+        <ul class="popUp__checkboxes ">
+            <li ng-repeat="user in participants">
+                <input value="{{user.userName}}" ng-checked="selectedTeams.indexOf(user.userName) > -1" ng-click="toggleSelectionMembers(user.userName)" type="checkbox" class="customCheckBox customCheckBox_teams customCheckBox_sq customCheckBox_orange" name="{{user.userName}}" id="{{user.userName}}" />
+
+                <label for="{{user.userName}}"><span>{{user.firstName}}</span> <span>{{user.lastName}}</span></label>
+            </li>
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn popUp__button btn-white"
+                data-ng-click="modalOptions.ok();">
+            {{modalOptions.actionButtonText}}
+        </button>
+    </div>
+</div>

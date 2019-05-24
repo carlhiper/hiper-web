@@ -1,0 +1,102 @@
+﻿<ul class="teams ">
+    <li class="teams__item" ng-repeat="goal in goals">
+        <div id="{{goal.goalId}}">
+
+            <div class="teams__text teams__text_right teams__text_normal teams__text_hiperRight teams_triggerWrap" ng-class="{teams__text_gray: goal.title == 'Empty'}">
+
+                <div ng-click="openGoal(goal.goalId)" class="scoreboard__trigger">
+                    <div ng-if="goal.title != 'Empty'">
+                        <p>{{goal.title}}</p>
+                        <span ng-if="goal.targetAmount!=''">
+                        <span class="teams__amount teams__amount_reached">{{goal.reachedAmount}}</span>
+                        <span class="teams__amount teams__amount_target">[{{goal.targetAmount}}]</span>
+                        </span>
+                    </div>
+                    <p ng-if="goal.title == 'Empty'">{{'Scoreboard.Empty' | translate}}</p>
+                </div>
+                <div class="teams__hipes" ng-class="{teams__hipes_hiped: goal.isHiped}" ng-click="hipe(goal.goalId, goal.isHiped)">{{goal.hipes}}</div>
+            </div>
+            <div class="teams__deadline">
+                <div ng-show="(goal.goalId>-1)">
+
+                    <div ng-if="goal.deadline!=0">
+                        <span class="teams__deadline_val">
+
+                            <span ng-if="goal.deadline!=0">{{goal.deadline}}</span>
+                        </span>
+
+                        <span ng-if="goal.deadline!=0">
+                            {{'Scoreboard.Days'|translate}}
+                        </span>
+                        </div>
+                    <div ng-if="goal.deadline==0">
+                        <span class="teams__deadline_last">
+                            {{'Scoreboard.Last' | translate}}
+                        </span>
+                    </div>
+
+                    </div>
+                <span class="teams__deadline_tooLate" ng-show="goal.goalId==-1">
+                {{'Scoreboard.Deadline' | translate}}
+            </span>
+
+
+            </div>
+        </div>
+
+    </li>
+</ul>
+
+
+<ul class="teams ">
+    <li class="teams__item" ng-repeat="adminGoal in adminGoals">
+        <div id="{{adminGoal.goalId}}">
+            <div class="teams__text teams__text_lightGray teams__text_right teams__text_normal teams__text_hiperRight teams_triggerWrap" ng-class="{teams__text_gray: adminGoal.title == 'EmptyTeam'}">
+                <div class=" teams__hipes" ng-class="{teams__hipes_hiped: adminGoal.isHiped}" ng-click="hipe(adminGoal.goalId,adminGoal.isHiped)">{{adminGoal.hipes}}</div>
+                <div ng-click="openAdminGoal(adminGoal.goalId)" class="scoreboard__trigger">
+                    <div ng-if="adminGoal.title != 'EmptyTeam'">
+                        <p>{{adminGoal.title}}</p>
+                        <span ng-if="adminGoal.targetAmount!=''">
+                            <span class="teams__amount teams__amount_reached">{{adminGoal.reachedAmount}}</span>
+                            <span class="teams__amount teams__amount_target">[{{adminGoal.targetAmount}}]</span>
+                        </span>
+                    </div>
+                    <p ng-if="adminGoal.title == 'EmptyTeam'">{{'Scoreboard.EmptyTeam' | translate}}</p>
+                </div>
+
+
+            </div>
+            <div class="teams__deadline">
+                <div ng-show="(adminGoal.goalId>-1)">
+
+                    <div ng-if="adminGoal.deadline!=0">
+                        <span class="teams__deadline_val">
+
+                            <span ng-if="adminGoal.deadline!=0">{{adminGoal.deadline}}</span>
+                        </span>
+
+                        <span ng-if="adminGoal.deadline!=0">
+                            {{'Scoreboard.Days'|translate}}
+                        </span>
+                    </div>
+                    <div ng-if="adminGoal.deadline==0">
+                        <span class="teams__deadline_last">
+                            {{'Scoreboard.Last' | translate}}
+                        </span>
+                    </div>
+
+                </div>
+                <span class="teams__deadline_tooLate" ng-show="adminGoal.goalId==-1">
+                    {{'Scoreboard.Deadline' | translate}}
+                </span>
+
+
+            </div>
+
+        </div>
+
+    </li>
+</ul>
+
+
+

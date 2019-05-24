@@ -1,0 +1,22 @@
+﻿<div class="popUp">
+    <div class="modal-body">
+        <h3 class="text-center">{{modalOptions.headerText}}</h3>
+        <span class="mainForm__repeater" ng-repeat="s in emailsForNewTeamMembers track by $index">
+            <button class="button center-block center-block button_whiteRed popUp__button_array" ng-click="removeEmailForNewTeamMember($index)"><span class="glyphicon glyphicon-minus"></span></button>
+            <input class="form-control mainForm__member" placeholder="TEAM MEMBER.." ng-model="emailsForNewTeamMembers[$index]" type="email">
+        </span>
+
+        <button class="button button_whiteRed center-block popUp__button_array" ng-click="emailsForNewTeamMembers.push('')"><span class="glyphicon glyphicon-plus"></span></button>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-white popUp__button btn-white"
+                data-ng-click="modalOptions.ok();">
+            {{modalOptions.actionButtonText}}
+        </button>
+        <button type="button" class="btn popUp__button btn-white"
+                data-ng-click="modalOptions.close()">
+            {{modalOptions.closeButtonText}}
+        </button>
+
+    </div>
+</div>

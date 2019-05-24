@@ -1,0 +1,25 @@
+﻿<ul class="teams ">
+    <li class="teams__item" ng-repeat="goal in goals track by goal.goalId">
+        <div id="{{goal.goalId}}">
+            <div class="teams__text teams__text_right teams__text_normal teams__text_hiperRight">
+
+                
+
+                <div class="teams__hipes">{{goal.hipes}}</div>
+                <p>{{goal.title}}</p>
+                <p class="teams__description">{{goal.description}}</p>
+
+
+
+            </div><div class="teams__deadline teams__deadline_status">
+                 <p class="teams__time">{{goal.closedDate}}</p>
+                {{'StatusOfGoal.'+goal.statusGoalDescription|translate}}
+
+            </div>
+
+        </div>
+
+    </li>
+</ul>
+
+

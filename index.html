@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html data-ng-app="HiperApp">
+<head>
+
+    <link rel="apple-touch-icon" sizes="57x57" href="content/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="content/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="content/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="content/apple-touch-icon-76x76.png">
+    <link rel="icon" type="image/png" href="content/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="content/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="content/manifest.json">
+
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <meta content="IE=edge, chrome=1; charset=utf-8" http-equiv="X-UA-Compatible"/>
+    <title>Hiper</title>
+    <link href="content/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="content/css/c3.css" rel="stylesheet"/>
+    <link href="content/css/loading-bar.css" rel="stylesheet"/>
+    <link href="content/css/font-awesome.min.css" rel="stylesheet"/>
+    <link href="content/css/social-buttons.css" rel="stylesheet"/>
+    <link href="content/css/angular-slider.css" rel="stylesheet"/>
+    <link href="content/css/angular.rangeSlider.css" rel="stylesheet"/>
+    <link href="content/css/site.css" rel="stylesheet"/>
+
+    <meta name="viewport" content="width=1024">
+
+
+</head>
+<body data-ng-controller="indexController" data-ng-class="{bg_white: checkWhiteBackState()}">
+
+<div ui-view></div>
+
+<!-- 3rd party libraries -->
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.js"></script>
+<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-cookies.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
+<script src="scripts/angular-local-storage.min.js"></script>
+<script src="scripts/loading-bar.min.js"></script>
+<script src="scripts/angular-translate.js"></script>
+<script src="scripts/angular-translate-storage-local.js"></script>
+<script src="scripts/angular-translate-storage-cookie.js"></script>
+<script src="scripts/angular-translate-loader-static-files.js"></script>
+<script src="scripts/tmhDynamicLocale.min.js"></script>
+<script src="app/resources/angular-locale_en.js"></script>
+<script src="app/resources/angular-locale_sv-se.js"></script>
+<script src="scripts/angular-ui-router.js"></script>
+<script src="scripts/angular-ui-router.min.js"></script>
+<script src="scripts/angular-sanitize.min.js"></script>
+<script src="scripts/d3.min.js"></script>
+<script src="scripts/c3.min.js"></script>
+<script src="scripts/c3-angular.min.js"></script>
+<script src="scripts/ng-infinite-scroll.js"></script>
+
+
+<!-- Load app main script -->
+<script src="app/app.js?v=2"></script>
+
+<!-- Load services -->
+<script src="app/services/authInterceptorService.js?v=2"></script>
+<script src="app/services/authService.js?v=2"></script>
+
+<script src="app/services/tokensManagerService.js?v=2"></script>
+<script src="app/services/teamService.js?v=2"></script>
+<script src="app/services/feedService.js?v=2"></script>
+<script src="app/services/localeServices.js"></script>
+<script src="app/services/scoreboardService.js"></script>
+<script src="app/services/userProfileService.js"></script>
+<script src="app/services/goalService.js"></script>
+<script src="app/services/modalService.js?v=2"></script>
+
+<!-- Load controllers -->
+<script src="app/controllers/indexController.js?v=2"></script>
+<script src="app/controllers/homeController.js?v=2"></script>
+<script src="app/controllers/loginController.js?v=2"></script>
+<script src="app/controllers/signupController.js?v=2"></script>
+
+<script src="app/controllers/tokensManagerController.js?v=2"></script>
+
+<script src="app/controllers/teamController.js?v=2"></script>
+<script src="app/controllers/teamCreateController.js?v=2"></script>
+<script src="app/controllers/teamJoinController.js?v=2"></script>
+<script src="app/controllers/feedController.js?v=2"></script>
+<script src="app/controllers/scoreboardController.js"></script>
+<script src="app/controllers/userProfileController.js"></script>
+<script src="app/controllers/goalController.js"></script>
+<script src="app/controllers/goalCreateController.js"></script>
+
+<!-- Load custom filters -->
+<!-- Load custom directives -->
+<script src="scripts/angular.rangeSlider.js"></script>
+<script src="scripts/script.js"></script>
+
+
+</body>
+</html>

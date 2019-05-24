@@ -1,0 +1,233 @@
+﻿<div class="wrapper">
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <span class="logo"><img src="content/i/logo.png" alt="">HIPER</span>
+            </div>
+        </div>
+        <div class="header__bottom " role="navigation">
+            <div class="container">
+                <div class="row">
+                    <button class="btn btn-success navbar-toggle" data-ng-click="navbarExpanded = !navbarExpanded">
+                        <span class="glyphicon glyphicon-chevron-down"></span>
+                    </button>
+                    <ul class="header__log ">
+                        <li data-ng-hide="!authentication.isAuth"><a href="" data-ng-click="logOut()">Logout</a></li>
+                        <li data-ng-hide="authentication.isAuth"> <a href="#/login">Login</a></li>
+                        <li data-ng-hide="authentication.isAuth"> <a href="#/signup">Create</a></li>
+                    </ul>
+                    <nav class="header__nav">
+                        <a ui-sref="home.feed" ng-class="{ header__navItem_active: isActiveHeader('/feed')}" class="header__navItem">{{ 'Menu.FEED' | translate }}</a>
+                        <a ui-sref="home.scoreboard" ng-class="{ header__navItem_active: isActiveHeader('/scoreboard')}" class="header__navItem">{{ 'Menu.SCOREBOARD' | translate }}</a>
+                        <a ui-sref="home.team" ng-class="{ header__navItem_active: isActiveHeader('/team')}" class="header__navItem">{{ 'Menu.TEAM' | translate }}</a>
+                      
+                    </nav>
+
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="container main fullHeight">
+
+        <div class="row">
+            <div class="col-md-2">
+                &nbsp;
+            </div>
+            
+
+        </div>
+
+
+        <div class="row">
+            <aside class="col-xs-2 main__left sidebar">
+                <div class="sidebar__item row udates">
+                    <h4 class="sidebar__title sidebar__title_updates">UPDATES</h4>
+                    <article class="udates__item">
+                        <time class="udates__time"> 2016-01-05</time>
+                        <h5 class="udates__title">Tutorial!</h5>
+                        <p class="udates__text">
+                           Download HIPER startup tutorial at <a href="/content/PDF/GetstartedwithHIPER.pdf">PDF tutorial</a>
+                        </p>
+                    </article>
+                  </div>
+            </aside>
+            <div class="col-xs-6 col-xs-offset-1 main__center">
+                <div ui-view></div>
+            </div>
+            <aside class="col-xs-2 col-xs-offset-1 main__right sidebar">
+                <div class="sidebar__item row">
+                    <h4 class="sidebar__title">{{'UserProfile.TEAMS' | translate}}</h4>
+                    <ul class="chooseTeam ">
+                        <li class="chooseTeam__item" ng-class="{ chooseTeam__item_active: isActive(teams[$index].teamId), chooseTeam__item_diasabled: !teams[$index].active}"  ng-repeat="team in teams track by $index" ng-click="setCurrentTeam(teams[$index].teamId,teams[$index].isAdmin,teams[$index].active)">
+                            <p>{{teams[$index].teamName}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="sidebar__item row filter" ng-show="checkFilterState()" id="filter">
+                    <div>
+                        <h4 class="sidebar__title">{{ 'Filter.Filter' | translate }}</h4>
+
+
+                        <ul class="filter__form">
+                            
+                            
+                            <li class="form-group" ng-show="checkAdminOrFeedState()">
+                                {{ 'Filter.teammember' | translate }}
+                                <select name="selectUser" class="form-control customInput customInput_sidebar" id="selectUser"
+                                        ng-options="option.name for option in filterUsers.options track by option.id"
+                                        ng-model="filterUsers.selected"></select>
+                            </li>
+                            
+                            <li class="form-group" ng-show="checkFeedState()">
+                                {{ 'Filter.TypeOfUpdate' | translate }}
+                                <select name="selectUpdate" class="form-control customInput customInput_sidebar" id="selectUpdate"
+                                        ng-options="option as ('TypeOfUpdate.'+option.name)|translate for option in filterUpdate.options track by option.id"
+                                        ng-model="filterUpdate.selected"></select>
+                            </li>
+                           
+                            <li class="form-group" ng-show="checkScoreboardHistoryState()">
+                                {{ 'Filter.status' | translate }}
+                                <select name="selectStatus" class="form-control customInput customInput_sidebar" id="selectStatus"
+                                        ng-options="option as ('StatusOfGoal.'+option.name)|translate for option in filterStatuses.options track by option.id"
+                                        ng-model="filterStatuses.selected"></select>
+                            </li>
+                            
+                            <li class="form-group" ng-show="checkFeedState()">
+                                {{ 'Filter.typeofgoal' | translate }}
+
+                                <select name="selectGoal" class="form-control customInput customInput_sidebar" id="selectGoal"
+                                        ng-options="option as ('TypeOfGoal.'+option.name)|translate  for option in filterGoal.options track by option.id"
+                                        ng-model="filterGoal.selected"></select>
+
+                            </li>
+                            
+                            <li class="form-group" ng-show="checkScoreboardHistoryState()">
+                                {{ 'Filter.filter' | translate }}
+                                <select name="selectUpdate" class="form-control customInput customInput_sidebar" id="selectFeedback"
+                                        ng-options="option as ('Feedbacks.'+option.name)|translate for option in filterFeedbacks.options track by option.id"
+                                        ng-model="filterFeedbacks.selected"></select>
+                            </li>
+                            
+                            <li class="form-group">
+                                {{'Filter.timespan' | translate}}
+
+                                <div range-slider min="date.rangeMin" max="date.rangeMax" model-min="date.min" model-max="date.max"  filter="dateFilter" step="{{date.step}}"></div>
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="userProfileTeamSection" ng-show="checkUserProfileState()" class="sidebar__item row">
+                    <h4 class="sidebar__title">TEAM OPTIONS</h4>
+
+                    <div class="form-group">
+                        <button onclick=" window.location.href = '#/teamCreateJoin' " id="addTeam" class="btn btn-block btn-white sidebar__link">{{'UserProfile.ADDTEAM' | translate}}</button>
+                    </div>
+                    <div class="form-group">
+                        <button id="deleteTeam" ng-click="deleteSelectedTeams()" class="btn btn-block btn-white sidebar__link">{{'UserProfile.DELETETEAMTITLE' | translate}}</button>
+                    </div>
+
+                </div>
+             
+
+                <div ng-click="openUserProfile()" id="scoreBoardProfile" ng-show="checkScoreboardStateUser()" class="sidebar__item sidebar__item_profile row">
+                    <p class="sidebar__title">{{'UserProfile.PROFILE' | translate}}</p>
+                    <p class=""><strong>{{'UserProfile.ClickToView' | translate}}</strong></p>
+                    <span class="sidebar__avatar">
+                        <img src="{{profileData.profile.picture}}"></img>
+                    </span>
+
+
+                    <h4 class="teams__name">
+                        <span>{{profileData.profile.firstName}}</span>
+                        <span>{{profileData.profile.lastName}}</span>
+                    </h4>
+                    <h5 class="teams__nickName">{{profileData.profile.nickName}}</h5>
+                    <p class="teams__title">{{profileData.profile.title}}</p>
+                    <p class="teams__title">{{profileData.profile.company}}</p>
+                </div>
+
+                <div id="teamActionSection" ng-show="checkTeamState()" class="sidebar__item row">
+                    <h4 class="sidebar__title">MANAGER OPTIONS</h4>
+                    <div class="form-group">
+                        <button data-ng-click="addGoal()" class="btn btn-block btn-white sidebar__link">{{'Team.ADDGOAL' | translate}}</button>
+                    </div>
+                    <div class="form-group">
+                        <button data-ng-click="addTeamMember()" class="btn btn-block btn-white sidebar__link">{{'Team.INVITEMEMBER' | translate}}</button>
+                    </div>
+                    <div class="form-group">
+                        <button data-ng-click="approuveTeamMember()" class="btn btn-block btn-white sidebar__link">{{'Team.APPLICANT' | translate}}</button>
+                    </div>
+                    <div class="form-group">
+                        <button data-ng-click="removeTeamMembers()" class="btn btn-block btn-white sidebar__link">{{'Team.DELETEMEMBER' | translate}}</button>
+                    </div>
+                </div>
+                <div id="teamTeamSection" ng-show="checkTeamOptionsState()" class="sidebar__item row">
+                    <h4 class="sidebar__title">{{'Team.TeamOptions' | translate}}</h4>
+
+                    <div class="form-group">
+                        <button onclick=" window.location.href = '#/teamCreateJoin' " id="addTeamAll" class="btn btn-block btn-white sidebar__link">{{'UserProfile.ADDTEAM' | translate}}</button>
+                    </div>
+                    <div class="form-group">
+                        <button id="deleteOneTeam" ng-click="deleteCurrentTeams()" class="btn btn-block btn-white sidebar__link">{{'UserProfile.DeleteTeamOptions' | translate}}</button>
+                    </div>
+
+                </div>
+
+                <div id="goalActionSection" ng-show="checkTeamGoalState()" class="sidebar__item row">
+                    <h4 class="sidebar__title">MANAGER CHOICES</h4>
+                  <div class="form-group">
+                      <button data-ng-click="addGoalParticipant()" class="btn btn-block btn-white sidebar__link">{{'Team.ADDMEMBER' | translate}}</button>
+                    </div>
+                    <div class="form-group">
+                        <button data-ng-click="removeGoalParticipant()" class="btn btn-block btn-white sidebar__link">{{'Team.DELETEMEMBER' | translate}}</button>
+                    </div>
+                </div>
+
+
+
+
+                <div id="scoreBoardSection" ng-show="checkScoreboardState()" class="sidebar__item row">
+                    <h4 class="sidebar__title">VIEW</h4>
+                    <div class="form-group">
+                        <button data-ng-click="activeScoreboard()" data-ng-class="{sidebar__link_active: checkScoreBoardState('home.scoreboard')}" class="btn btn-block btn-white sidebar__link">{{'Scoreboard.Current'|translate}}</button>
+                    </div>
+                    <div class="form-group">
+                        <button data-ng-click="historyScoreboard()" data-ng-class="{sidebar__link_active: checkScoreBoardState('home.scoreboardHistory')}" class="btn btn-block btn-white sidebar__link">{{'Scoreboard.History'|translate}}</button>
+                    </div>
+                    <div class="form-group">
+                        <button data-ng-click="statisticsScoreboard()" data-ng-class="{sidebar__link_active: checkScoreBoardState('home.scoreboardStatistics')}" class="btn btn-block btn-white sidebar__link">{{'Scoreboard.Statistic'|translate}}</button>
+                    </div>
+                    
+                    <div class="form-group" ng-show="checkScoreboardStatisticsState()">
+                        <button data-ng-click="advancedStatistics()" class="btn btn-block btn-white sidebar__link">{{'ADVANCED'|translate}}</button>
+                    </div>
+
+                    
+                </div>
+            </aside>
+        </div>
+    </div>
+
+
+
+
+</div>
+<script type="text/ng-template" id="popupRemoveTeam.html">
+    <div class="modal-header">
+        <h3 class="modal-title">Are you Sure?!</h3>
+    </div>
+    <div class="modal-body">
+
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="button" ng-click="ok()">Yes</button>
+        <button class="btn btn-warning" type="button" ng-click="cancel()">No</button>
+    </div>
+</script>
+
+<!---->
+<!--<div ui-view></div>-->

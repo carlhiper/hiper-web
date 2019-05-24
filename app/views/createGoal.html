@@ -1,0 +1,65 @@
+﻿<form role="form" ng-submit="createGoal()">
+    <div class=" goal">
+
+        <textarea type="text" class="customInput form-control goal__helper goal__item_title" placeholder='{{"Goal.Description" | translate}}' data-ng-model="goal.title" required></textarea>
+        <textarea type="text" data-ng-model="goal.description" class="customInput form-control goal__helper goal__item_descr" placeholder='{{"Goal.AdditionalInfo" | translate}}' ></textarea>
+        <div class="goal__helper">
+
+            <div ng-repeat="option in typesOfGoals.options track by option.id">
+                <input type="radio" class="customCheckBox" ng-required="!someSelected(typesOfGoals.selected)" ng-value="option" ng-model="typesOfGoals.selected" id="{{option.name}}" name="num"><label class="form-control goal__checkLine" for="{{option.name}}">{{'TypeOfGoal.'+option.name|translate}}</label>
+            </div>
+          
+        </div>
+        <div class="goal__helper">
+            <input ng-disabled="checkIsNumber()" type="number" class="form-control goal__reach" data-ng-model="goal.reachedAmount" placeholder='{{"Goal.Reached" | translate}}'>
+            <input ng-disabled="checkIsNumber()" type="number" class="form-control goal__dest goal__dest_red" data-ng-model="goal.targetAmount" placeholder='{{"Goal.Total" | translate}}'>
+
+        </div>
+
+        <div class="goal__helper">
+            <div ng-repeat="option in repeats.options track by option.id">
+                <input type="radio" class="customCheckBox" ng-value="option" ng-model="repeats.selected" id="{{option.name}}" ng-required="!someSelected(repeats.selected)" name="repeats"><label class="form-control goal__checkLine" for="{{option.name}}">{{'Repeats.'+option.name|translate}}</label>
+            </div>
+            <input type="hidden" name="hiddenradiobuttoninput" />
+        </div>
+
+        <div class="goal__helper">
+            <input placeholder="{{'Goal.Deadline'|translate}}" onkeydown="return false" type="text" class="form-control customInput goal__date" ng-click="open($event)" class="form-control" uib-datepicker-popup='{{"Goal.DateFormat" | translate}}' ng-model="goal.deadline" is-open="status.opened" min-date="minDate" max-date="maxDate" datepicker-options="dateOptions" date-disabled="disabled(date, false)" ng-required="true" close-text="Close" />
+        </div>
+
+        <div class="goal__helper goal__helper_hips">
+            <span class="hipes__text">HIPES</span>
+            <div class="teams__hipes">
+                {{goal.hipes}}
+            </div>
+        
+        </div>
+
+        <div class="goal__helper">
+            <div ng-repeat="option in statusOfGoals.options track by option.id">
+                <input ng-disabled="true" type="radio" class="customCheckBox" ng-required="!someSelected(statusOfGoals.selected)" ng-value="option" ng-model="statusOfGoals.selected" id="{{option.name}}" name="status"><label class="form-control goal__checkLine" for="{{option.name}}">{{'StatusOfGoal.'+option.name|translate}}</label>
+            </div>
+         
+        </div>
+        <div class="goal__helper teams__text" ng-if="isAdmin()">
+            <ul class="teams__checkboxes">
+                <li class="teams__title" ng-repeat="user in participants track by $index">
+                    <input value="{{user.userName}}" ng-checked="participantsSelected.indexOf(user.userName) > -1" ng-click="toggleSelection(user.userName)" type="checkbox" class="customCheckBox customCheckBox_teams customCheckBox_orange" name="{{user.userName}}" id="{{user.userName}}" class="customCheckBox customCheckBox_teams customCheckBox_orange">
+                    <label for="{{user.userName}}"><span>{{user.firstName}}</span> <span>{{user.lastName}}</span></label>
+                </li>
+            </ul>
+        </div>
+
+        <div class="goal__helper">
+            <button ng-disabled="clickedSave" class="btn btn-white form-control goal__button" type="submit" value="Submit">{{"Goal.Save" | translate}}</button>
+            <button class="btn btn-white form-control goal__button" type="button" ng-click="cancel()">{{"Goal.Abort" | translate}}</button>
+        </div>
+
+
+
+
+
+
+
+    </div>
+</form>

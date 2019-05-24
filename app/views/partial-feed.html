@@ -1,0 +1,33 @@
+﻿<div infinite-scroll='getFeedList()' infinite-scroll-distance='0'>
+    <ul class="teams teams_feed">
+        <li class="teams__item teams__item_img" ng-repeat="feed in feedList track by $index">
+
+            <span ng-click="openScoreboard(feed.userName,feed.isDeleted)" class="teams__avatar"><img src="{{feedList[$index].picture}}"></img></span>
+
+            <div class="teams__text teams__text_right teams__text_wide teams__text_hiperRight">
+
+                <p class="teams__time">{{feedList[$index].dateFrom}}</p>
+                <h4  class="teams__name">
+                    <span ng-click="openScoreboard(user.userName,user.isDeleted)" ng-repeat="user in feed.users">
+                        <span>{{user.firstName}}</span>
+                        <span>{{user.lastName}}</span>
+                        <span ng-if="!$last">,</span>
+                    </span>
+
+
+                </h4>
+                <h5 class="teams__nickName">{{feedList[$index].title}}</h5>
+                <p class="teams__typeDescr">
+                    {{'TypeOfUpdate.'+feedList[$index].updateTypeDescription | translate}}
+                </p>
+                <p class="teams__descr">{{feedList[$index].goalDescription}}</p>
+                <span ng-if="feedList[$index].targetAmount!=''">
+                    <span class="teams__amount teams__amount_reached">{{feedList[$index].reachedAmount}}</span>
+                    <span class="teams__amount teams__amount_target">[{{feedList[$index].targetAmount}}]</span>
+                </span>
+                <p class="teams__hipes teams__hipes_right" ng-class="{teams__hipes_hiped: feed.isHiped}" ng-click="hipe(feed.feedId,feed.goalId,feed.isHiped)">{{feedList[$index].hipes}}</p>
+            </div>
+
+        </li>
+    </ul>
+</div>

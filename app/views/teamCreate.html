@@ -1,0 +1,39 @@
+﻿<form class="mainForm mainForm_createTeam" role="form" ng-submit="createTeam()">
+    <h2 class="form-login-heading">CREATE TEAM</h2>
+    <div class="mainForm__inner mainForm__inner_crate">
+
+        
+        <span ng-if="teamCreateType=='Business'">
+            <input type="text" class="form-control" placeholder='{{"CreateTeam.TEAMNAME" | translate}}' data-ng-model="creating.teamName" required autofocus>
+            <input type="password" class="form-control" placeholder='{{"CreateTeam.PASSWORD" | translate}}' data-ng-model="creating.password" required>
+
+            <input type="text" class="form-control" placeholder='{{"CreateTeam.COMPANY" | translate}}' data-ng-model="creating.companyName" required>
+            <input type="text" class="form-control" placeholder='{{"CreateTeam.ORGNUMBER" | translate}}' data-ng-model="creating.organisationNumber" required>
+            <textarea class="form-control" placeholder='{{"CreateTeam.BILLINGADDRESS" | translate}}' data-ng-model="creating.billingAddress" required></textarea>
+        </span>
+
+        <span ng-if="teamCreateType != 'Business'">
+            <input type="text" class="form-control" placeholder='{{"CreateTeam.TEAMNAME" | translate}}' data-ng-model="creating.teamName" required autofocus>
+            <input type="password" class="form-control" placeholder='{{"CreateTeam.PASSWORD" | translate}}' data-ng-model="creating.password" required>
+
+            
+        </span>
+
+          <span class="mainForm__repeater" ng-repeat="s in creating.emails track by $index">
+            <a class="mainForm__button mainForm__button_removeText btn btn-white" ng-click="creating.emails.splice($index, 1)">{{'CreateTeam.REMOVEINVITE' | translate}}</a>
+            <input class="form-control mainForm__member" placeholder='{{"CreateTeam.TEAMMEMBERS" | translate}}' ng-model="creating.emails[$index]" type="email">
+
+        </span>
+       
+       
+
+        <a class="mainForm__button mainForm__button_removeText btn btn-white" ng-click="creating.emails.push('')">{{'CreateTeam.INVITE' | translate}}</a>
+
+        <p class="text-center "><strong>*Required fields</strong></p>
+
+        <button class="btn btn-md btn-block btn-white mainForm__button mainForm__button_create" type="submit">{{'CreateTeam.CREATETEAM' | translate}}</button>
+        <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+            {{message}}
+        </div>
+    </div>
+</form>

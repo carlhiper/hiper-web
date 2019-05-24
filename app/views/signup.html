@@ -1,0 +1,27 @@
+﻿<form class=" mainForm_signUp mainForm" role="form" ng-submit="signUp()">
+    <h2 class="form-login-heading">HIPER</h2>
+    <div class="mainForm__inner ">
+
+        <input type="email" class="form-control" placeholder='{{"CreateProfile.EMAIL" | translate}}' data-ng-model="registration.email" required autofocus="">
+        <input type="password" class="form-control" placeholder='{{"CreateProfile.PASSWORD" | translate}}' data-ng-model="registration.password" required>
+        <input type="password" class="form-control" placeholder='{{"CreateProfile.CONFIRMPASSWORD" | translate}}' data-ng-model="registration.confirmPassword" required>
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.FIRSTNAME" | translate}}' data-ng-model="registration.firstName" required>
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.LASTNAME" | translate}}' data-ng-model="registration.lastName" required>
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.NICKNAME" | translate}}' data-ng-model="registration.nickName" >
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.TITLE" | translate}}' data-ng-model="registration.title" >
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.COMPANY" | translate}}' data-ng-model="registration.company" >
+
+
+        <label class="mainForm_fileMask">
+            <span class="mainForm_fileText">{{"CreateProfile.ADDPICTURE" | translate}}</span>
+            <input type="file" class="" placeholder="Picture" custom-on-change="fileSelect" required>
+            <img ng-src="{{registration.picture}}" />
+        </label>
+        <p class="text-center "><strong>*Required fields</strong></p>
+
+        <button ng-disabled="savedSuccessfully" class="btn btn-lg btn-info btn-block mainForm__submit mainForm__button" type="submit" value="Submit">{{"CreateProfile.CREATEUSER" | translate}}</button>
+        <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+            {{message}}
+        </div>
+    </div>
+</form>

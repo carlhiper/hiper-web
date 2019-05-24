@@ -1,0 +1,19 @@
+﻿<form class=" mainForm_signUp mainForm" role="form">
+    <div class="mainForm__inner ">
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.FIRSTNAME" | translate}}' data-ng-model="profileEdit.firstName" required>
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.LASTNAME" | translate}}' data-ng-model="profileEdit.lastName" required>
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.NICKNAME" | translate}}' data-ng-model="profileEdit.nickName" required>
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.TITLE" | translate}}' data-ng-model="profileEdit.title" required>
+        <input type="text" class="form-control" placeholder='{{"CreateProfile.COMPANY" | translate}}' data-ng-model="profileEdit.company" required>
+        <input type="password" class="form-control" placeholder='{{"CreateProfile.PASSWORD" | translate}}' data-ng-model="profileEdit.password">
+        <label class="mainForm_fileMask">
+            <img ng-src="{{profileEdit.picture}}" />
+            <span class="mainForm_fileText">{{'CreateProfile.ADDPICTURE' | translate}}</span>
+            <input type="file" class="" placeholder="Picture" custom-on-change="fileSelect">
+        </label>
+        <button class="btn btn-lg btn-white btn-block mainForm__button" type="submit" data-ng-click="save()">{{'Goal.Save' | translate}}</button>
+        <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+            {{message}}
+        </div>
+    </div>
+</form>

@@ -1,0 +1,14 @@
+﻿
+<h5 class="scoreboard__stats scoreboard__stats_achived">ACHIEVED GOALS: {{achivedGoals}}</h5>
+<h5 class="scoreboard__stats scoreboard__stats_notAchivedGoals">NOT ACHIEVED GOALS: {{notAchivedGoals}}</h5>
+<h5 class="scoreboard__stats scoreboard__stats_canceled">CANCELLED: {{canceledGoals}}</h5>
+<div class="scoreboard__pie">
+    <c3chart bindto-id="dynamicpie" chart-data="piePoints" chart-columns="pieColumns" />
+</div>
+<h5 class="scoreboard__stats">TOTAL GOALS: {{achivedGoals + notAchivedGoals + canceledGoals}}</h5>
+<h5 class="scoreboard__stats">RATIO ACHIEVED: {{ratio}}%</h5>
+<h5 class="scoreboard__stats"><!-- empty --></h5>
+<h5 class="scoreboard__stats">{{'Scoreboard.Ihadenoughtime' | translate}}: {{hadEnTime}}%</h5>
+<h5 class="scoreboard__stats">{{'Scoreboard.Ihadtherightskills' | translate}}: {{hadRightSkills}}%</h5>
+<h5 class="scoreboard__stats">{{'Scoreboard.Ihadenoughsupport' | translate}}: {{hadEnSupport}}%</h5>
+<h5 class="scoreboard__stats">{{'Scoreboard.Ihadenoughresources' | translate}}: {{hadEnResource}}%</h5>

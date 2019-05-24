@@ -1,0 +1,39 @@
+﻿
+
+<div class="popUp">
+    <div class="modal-body">
+        <h3>{{modalOptions.headerText}}</h3>
+        <ul class="popUp__checkboxes popUp__checkboxes_small">
+            <li class="row">
+                <p class="col-xs-8"></p>
+                <p class="col-xs-2 text-center">
+                    yes
+                </p>
+                <p class="col-xs-2 text-center">
+                    no
+                </p>
+            </li>
+            <li class="row" ng-repeat="item in modalOptions.list">
+
+                <p class="col-xs-8">{{'Feedbacks.'+item.name|translate}}</p>
+                <p class="col-xs-2 text-center">
+                    <input type="radio" name="{{item.id}}name" ng-click="toggleSelection(item.id,true)" value="{{item.id}}" id="{{item.id}}first" class="customCheckBox customCheckBox_sq customCheckBox_orange" /><label for="{{item.id}}first"></label>
+                </p>
+                <p class="col-xs-2 text-center">
+                    <input type="radio" name="{{item.id}}name" ng-click="toggleSelection(item.id,false)" value="-1" id="{{item.id}}second" class="customCheckBox customCheckBox_sq customCheckBox_orange" /><label for="{{item.id}}second"></label>
+                </p>
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn popUp__button btn-white"
+                data-ng-click="modalOptions.ok()">
+            {{modalOptions.actionButtonText}}
+        </button>
+        <div data-ng-hide="surveyErrorMessage == ''" data-ng-class="(!surveysAllChecked) ? 'alert alert-success' : 'alert alert-danger'">
+            {{surveyErrorMessage}}
+        </div>
+    </div>
+</div>
